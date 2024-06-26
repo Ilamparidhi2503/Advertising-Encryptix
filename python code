@@ -1,0 +1,44 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Load the CSV file
+file_path = '/advertising.csv'  # Update the path to your file
+data = pd.read_csv(file_path)
+
+# Display the first few rows of the dataframe
+print(data.head())
+
+# Create a pairplot to visualize the relationships between variables
+sns.pairplot(data)
+plt.show()
+
+# Create a heatmap to visualize the correlation between variables
+plt.figure(figsize=(10, 6))
+sns.heatmap(data.corr(), annot=True, cmap='coolwarm', linewidths=0.5)
+plt.title('Correlation Heatmap')
+plt.show()
+
+# Create a scatter plot for TV vs Sales
+plt.figure(figsize=(8, 6))
+sns.scatterplot(data=data, x='TV', y='Sales')
+plt.title('TV Advertising vs Sales')
+plt.xlabel('TV Advertising Spend')
+plt.ylabel('Sales')
+plt.show()
+
+# Create a scatter plot for Radio vs Sales
+plt.figure(figsize=(8, 6))
+sns.scatterplot(data=data, x='Radio', y='Sales')
+plt.title('Radio Advertising vs Sales')
+plt.xlabel('Radio Advertising Spend')
+plt.ylabel('Sales')
+plt.show()
+
+# Create a scatter plot for Newspaper vs Sales
+plt.figure(figsize=(8, 6))
+sns.scatterplot(data=data, x='Newspaper', y='Sales')
+plt.title('Newspaper Advertising vs Sales')
+plt.xlabel('Newspaper Advertising Spend')
+plt.ylabel('Sales')
+plt.show()
